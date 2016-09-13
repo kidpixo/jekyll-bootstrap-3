@@ -1,4 +1,17 @@
-# Jekyll-Bootstrap-3
+
+# Docker-compose
+
+I added a docker-compose file that spins up :
+
+1. jekyl 
+
+`grahamc/jekyll` mounts current directory `/src` in the container and runs  `jekyll build --watch`
+
+2. nginx
+
+Official `nginx` image mount `/_site` to `/usr/share/nginx/html` and maps the internal 80 port to the 8080 and serves it.
+
+# Jekyll-Bootstrap-2
 
 Easily publish Bootstrap 3 powered Jekyll sites.  
 Fork of the well known jekyll-bootstrap (v0.3.0). Original project is [here](https://github.com/plusjade/jekyll-bootstrap).  
