@@ -5,6 +5,7 @@ layout: default
 
 Running docker service on `macmertis.pe.ba.dlr.de` :
 
+{: .table .table-striped .table-responsive}
 | Names                                       | Image                 | Status                 | ID                 |
 |---------------------------------------------|-----------------------|------------------------|--------------------| {% for container in site.data.dockerps %}
 | [{{ container.Names }}](#{{ container.ID }}) | {{ container.Image }} | {{ container.Status }} | {{ container.ID }} | {% endfor %}
