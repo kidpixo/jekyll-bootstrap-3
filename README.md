@@ -1,15 +1,26 @@
 
 # Docker-compose
 
-I added a docker-compose file that spins up :
+I added a docker-compose file that create a pipeline to generate a static website and serve it.
 
-1. jekyl 
+1. jekyl, static blog generator
 
 `grahamc/jekyll` mounts current directory `/src` in the container and runs  `jekyll build --watch`
 
-2. nginx
+2. nginx webserver
 
 Official `nginx` image mount `/_site` to `/usr/share/nginx/html` and maps the internal 80 port to the 8080 and serves it.
+
+3. Generate the `docker ps` datafile
+
+`sh _scripts/dockerps2csv.sh > _data/dockerps.csv`
+
+4. spin up the machines
+
+Run in the current directory `docker-compose up`
+
+5. In the `[BASEURL]/docker.html` you will have a list of the running containers.
+
 
 # Jekyll-Bootstrap-2
 
