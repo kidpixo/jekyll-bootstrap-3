@@ -5,6 +5,12 @@ services:
           volumes:
               - ./:/src
           command: [build,--watch]
+    crond:
+        image: crond-alpine
+        volumes: 
+              - /var/run/docker.sock:/var/run/docker.sock
+              - /usr/local/bin/docker:/usr/bin/docker 
+              - ./:/src
     nginx:
           image: nginx
           ports:
