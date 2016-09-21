@@ -1,19 +1,19 @@
 version: '2'
 services:
+    crond:
+        image: crond-alpine
+        volumes: 
+              - /var/run/docker.sock:/var/run/docker.sock
+              - /usr/bin/docker:/usr/bin/docker 
+              - ./:/src
     jekyll:
           image: grahamc/jekyll
           volumes:
               - ./:/src
           command: [build,--watch]
-    crond:
-        image: crond-alpine
-        volumes: 
-              - /var/run/docker.sock:/var/run/docker.sock
-              - /usr/local/bin/docker:/usr/bin/docker 
-              - ./:/src
     nginx:
           image: nginx
           ports:
-            - "8080:80"
+            - "8081:80"
           volumes:
               - ./_site:/usr/share/nginx/html
